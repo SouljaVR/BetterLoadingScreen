@@ -15,7 +15,6 @@ namespace OldLoadingScreen
 		public static MelonPreferences_Entry<bool> ShowLoadingMessages;
 		public static MelonPreferences_Entry<bool> WarpTunnel;
 		public static MelonPreferences_Entry<bool> VrcLogo;
-		public static MelonPreferences_Entry<bool> ModSounds;
 
 		public static void RegisterSettings()
 		{
@@ -24,9 +23,8 @@ namespace OldLoadingScreen
 			ShowLoadingMessages = category.CreateEntry("LoadingMessages", false, "Show loading messages. (Enable for LoadingScreenPictures compatibility)");
 			WarpTunnel = category.CreateEntry("Warp Tunnel", true, "Toggle warp tunnel (good for reducing motion)");
 			VrcLogo = category.CreateEntry("Vrchat Logo", true, "Toggle VRChat logo");
-			ModSounds = category.CreateEntry("Mod Sounds", true, "Toggle mod music");
 
 		}
-		
+
 	}
 }

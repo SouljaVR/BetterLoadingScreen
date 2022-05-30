@@ -1,8 +1,4 @@
-﻿// Pls be gentle this is my first mod, I know it's messy
-// If there's better or more efficient ways of doing things please let me know :)
-
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +14,7 @@ using Object = UnityEngine.Object;
 using VRC;
 using VRC.Core;
 
-[assembly: MelonInfo(typeof(OldLoadingScreenMod), "BetterLoadingScreen", "v0.8.0", "Grummus")]
+[assembly: MelonInfo(typeof(OldLoadingScreenMod), "BetterLoadingScreen", "0.8.1", "Grummus, BigSoulja")]
 [assembly: MelonGame("VRChat", "VRChat")]
 [assembly: MelonOptionalDependencies("UIExpansionKit")]
 
@@ -90,34 +86,18 @@ namespace OldLoadingScreen
 			MelonLogger.Msg("Applying Preferences");
 
 			loadScreenPrefab = GameObject.Find("UserInterface/MenuContent/Popups/LoadingPopup/LoadingBackground(Clone)");
-			var music = loadScreenPrefab.transform.Find("MenuMusic");
-			var spaceSound = loadScreenPrefab.transform.Find("SpaceSound");
 			var cube = loadScreenPrefab.transform.Find("SkyCube");
 			var particles = loadScreenPrefab.transform.Find("Stars");
 			var warpTunnel = loadScreenPrefab.transform.Find("Tunnel");
 			var logo = loadScreenPrefab.transform.Find("VRCLogo");
 			var InfoPanel = GameObject.Find("UserInterface/MenuContent/Popups/LoadingPopup/3DElements/LoadingInfoPanel");
-			var originalLoadingAudio = GameObject.Find("/UserInterface/MenuContent/Popups/LoadingPopup/LoadingSound");
 			var aprfools = loadScreenPrefab.transform.Find("meme");
-
-			if (OldLoadingScreenSettings.ModSounds.Value)
-			{
-				music.gameObject.SetActive(true);
-				spaceSound.gameObject.SetActive(true);
-
-				originalLoadingAudio.SetActive(false);
-			} else
-			{
-				music.gameObject.SetActive(false);
-				spaceSound.gameObject.SetActive(false);
-
-				originalLoadingAudio.SetActive(true);
-			}
 
 			if (OldLoadingScreenSettings.WarpTunnel.Value)
 			{
 				warpTunnel.gameObject.SetActive(true);
-			} else
+			}
+			else
 			{
 				warpTunnel.gameObject.SetActive(false);
 			}
@@ -125,7 +105,8 @@ namespace OldLoadingScreen
 			if (OldLoadingScreenSettings.VrcLogo.Value)
 			{
 				logo.gameObject.SetActive(true);
-			} else
+			}
+			else
 			{
 				logo.gameObject.SetActive(false);
 			}
@@ -133,7 +114,8 @@ namespace OldLoadingScreen
 			if (OldLoadingScreenSettings.ShowLoadingMessages.Value)
 			{
 				InfoPanel.SetActive(true);
-			} else
+			}
+			else
 			{
 				InfoPanel.SetActive(false);
 			}
@@ -157,9 +139,7 @@ namespace OldLoadingScreen
 			var bubbles = GameObject.Find("/UserInterface/MenuContent/Popups/LoadingPopup/3DElements/LoadingBackground_TealGradient/_FX_ParticleBubbles");
 			var loginBubbles = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/_FX_ParticleBubbles");
 			var StartScreen = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/");
-			var originalStartScreenAudio = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/LoadingSound");
 			var originalStartScreenSkyCube = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/SkyCube_Baked");
-			var originalLoadingAudio = GameObject.Find("/UserInterface/MenuContent/Popups/LoadingPopup/LoadingSound");
 
 			MelonLogger.Msg("Creating new GameObjects");
 			loadScreenPrefab = CreateGameObject(loadScreenPrefab, new Vector3(400, 400, 400), "UserInterface/MenuContent/Popups/", "LoadingPopup");
@@ -171,10 +151,8 @@ namespace OldLoadingScreen
 			// Disable original objects from loading screen
 			SkyCube.active = false;
 			bubbles.active = false;
-			originalLoadingAudio.active = false;
 
 			// Disable original objects from login screen
-			originalStartScreenAudio.active = false;
 			originalStartScreenSkyCube.active = false;
 			loginBubbles.active = false;
 
