@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using Object = UnityEngine.Object;
 using VRC;
 using VRC.Core;
 
-[assembly: MelonInfo(typeof(OldLoadingScreenMod), "BetterLoadingScreen", "0.8.1", "Grummus, BigSoulja")]
+[assembly: MelonInfo(typeof(OldLoadingScreenMod), "BetterLoadingScreen", "0.8.2", "Grummus, BigSoulja")]
 [assembly: MelonGame("VRChat", "VRChat")]
 [assembly: MelonOptionalDependencies("UIExpansionKit")]
 
@@ -92,6 +92,13 @@ namespace OldLoadingScreen
 			var logo = loadScreenPrefab.transform.Find("VRCLogo");
 			var InfoPanel = GameObject.Find("UserInterface/MenuContent/Popups/LoadingPopup/3DElements/LoadingInfoPanel");
 			var aprfools = loadScreenPrefab.transform.Find("meme");
+			var music = loadScreenPrefab.transform.Find("MenuMusic");
+			var originalLoadingAudio = GameObject.Find("/UserInterface/MenuContent/Popups/LoadingPopup/LoadingSound");
+			var spaceSound = loadScreenPrefab.transform.Find("SpaceSound");
+
+			music.gameObject.SetActive(false);
+			spaceSound.gameObject.SetActive(false);
+			originalLoadingAudio.SetActive(true);
 
 			if (OldLoadingScreenSettings.WarpTunnel.Value)
 			{
@@ -140,6 +147,9 @@ namespace OldLoadingScreen
 			var loginBubbles = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/_FX_ParticleBubbles");
 			var StartScreen = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/");
 			var originalStartScreenSkyCube = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/SkyCube_Baked");
+			var originalStartScreenAudio = GameObject.Find("/UserInterface/LoadingBackground_TealGradient_Music/LoadingSound");
+			var originalLoadingAudio = GameObject.Find("/UserInterface/MenuContent/Popups/LoadingPopup/LoadingSound");
+
 
 			MelonLogger.Msg("Creating new GameObjects");
 			loadScreenPrefab = CreateGameObject(loadScreenPrefab, new Vector3(400, 400, 400), "UserInterface/MenuContent/Popups/", "LoadingPopup");
