@@ -7,17 +7,8 @@ Replaces the default VRChat world loading screen with the original warp tunnel!
   <img width="" height="" src="https://github.com/Grummus/BetterLoadingScreen/blob/master/preview.gif">
 </p>
 
-Still Under Construction
+This version has compatibility with mods/clients that replace the loading screen music with something else. So just to be clear, this mod itself doesnt allow for custom music. It just offers compatibility with other mods that do. Enjoy :)
 
-## Planned Features:
- - ✔ Option to toggle warp tunnel effect and other things
- - Get the old UI working!
+Original mod by Grummus.
 
-**Download Here:**  
-https://github.com/Grummus/BetterLoadingScreen/releases/
-
-**Track progress here: (if anyone actually bothers reading this)**
-https://github.com/Grummus/BetterLoadingScreen/projects/1
-
-
-*Hello everyone! :^) - AAMBIENTT*
+**USE IT AT YOUR OWN RISK. Modding the client is against VRChat ToS. I am not responsible for any bans or other punishments you may get by using this mod!**
